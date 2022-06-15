@@ -49,4 +49,6 @@ if (busca == "perfumes".toLowerCase()) {
         const barra = jabones.filter (producto => producto.formato == "barra")
         console.log (barra)
     }
+} else {
+    alert ("El producto que usted busca no esta en stock actualmente. Por favor envia un mensaje para consultar futura disponibilidad o para pedirlo por encargo.")
 }
