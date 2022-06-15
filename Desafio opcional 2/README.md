@@ -1,3 +1,0 @@
-# proyectoJS
-
-Proyecto JS
