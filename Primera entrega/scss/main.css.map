@@ -1,0 +1,16 @@
+{
+    "version": 3,
+    "mappings": "AEAA,AAAA,IAAI,CAAC;EACD,gBAAgB,EAAE,KAAK;CAC1B",
+    "sources": [
+        "main.scss",
+        "_variables.scss",
+        "all-pages/_body.scss",
+        "all-pages/_config.scss",
+        "all-pages/_footer.scss",
+        "all-pages/_header.scss",
+        "all-pages/_navegacion.scss",
+        "_mediaqueries.scss"
+    ],
+    "names": [],
+    "file": "main.css"
+}

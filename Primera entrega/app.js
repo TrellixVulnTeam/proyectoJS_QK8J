@@ -1,6 +1,6 @@
 
 // TIENDA VIRTUAL - CONSULTORIA
-
+/*
 const perfume = [  {nombre: "Kaiak Clasico", caracteristicas: "Masculino", precio: 4800},  
                     {nombre: "Kaiak Aventura", caracteristicas: "Femenino", precio: 4800},       
                     {nombre: "Dose de Humor", caracteristicas: "Femenino", precio: 3600},
@@ -27,7 +27,7 @@ if (busca == "perfumes".toLowerCase()) {
         alert ("Usted ha ingresado un termino no valido");
         prompt ("Busca perfume \nFemenino \n Masculino?").toLowerCase();
     }
-
+*/
     //Quiero filtrar sobre el resultado de busca1, como?
 
       /*  const busca2 = prompt ("Que precio aproximado?");
@@ -36,7 +36,7 @@ if (busca == "perfumes".toLowerCase()) {
             const menos4k = fem.filter (producto => producto.precio <= 4000);
             console.log (menos4k)
         } */
-
+/*
 } else if (busca == "cremas".toLowerCase()) {
     console.log ("No quedaron cremas disponibles")
 } else if (busca == "jabones".toLowerCase()) {
@@ -52,3 +52,4 @@ if (busca == "perfumes".toLowerCase()) {
 } else {
     alert ("El producto que usted busca no esta en stock actualmente. Por favor envia un mensaje para consultar futura disponibilidad o para pedirlo por encargo.")
 }
+ */
