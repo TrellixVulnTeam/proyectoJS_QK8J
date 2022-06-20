@@ -1,2 +1,25 @@
 body {
-  background-color: black; }
+  background-color: #FEFAE0; }
+
+section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 10px; }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+.html {
+  font-size: 62.5%; }
+
+header {
+  background-color: #DDA15E;
+  text-align: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 5rem;
+  color: #FEFAE0;
+  padding: 20px; }
