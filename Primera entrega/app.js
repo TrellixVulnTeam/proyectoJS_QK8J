@@ -1,33 +1,96 @@
-
+// TITULO
 const titulo = document.getElementById("titulo")
 const subtitulo= document.getElementById("subtitulo")
 
 titulo.innerText= "NATbyPG"
 subtitulo.innerText= "Consultora Natura"
 
+// PRODUCTOS Y CARRITO 
 
-const perfumes = [  {id: 1, nombre: "Kaiak Clasico", caracteristicas: "Masculino", precio: 4800},  
-                    {id: 2, nombre: "Kaiak Aventura", caracteristicas: "Femenino", precio: 4800},       
-                    {id: 3, nombre: "Dose de Humor", caracteristicas: "Femenino", precio: 3600},
-                    {id: 4, nombre: "Beijo de Humor", caracteristicas: "Femenino", precio: 3600}    ];
+const productosContainer = document.querySelector('#contenedor-productos')
+const carritoContenedor = document.querySelector('#carrito-contenedor')
+const contadorCarrito = document.querySelector('#contadorCarrito')
+const precioTotal = document.querySelector('#precioTotal')
+const btnVaciar = document.getElementById('vaciarCarrito')
+const carrito = []
 
-for (const perfume of perfumes) {
-    let contenedor = document.createElement("section");
-    contenedor.innerHTML = `<h3> Perfume: ${perfume.nombre}</h3>
-                            <p> ${perfume.caracteristicas} </p>
-                            <b> $ ${perfume.precio}</b>`;
-    document.body.appendChild(contenedor); 
+
+stock.forEach((producto) => {
+    const div = document.createElement('div')
+    div.classList.add('producto')
+
+    div.innerHTML = `
+                    <img src=${producto.img} alt="">
+                    <h3>${producto.nombre}</h3>
+                    <p>${producto.tipo}</p>
+                    <p>${producto.caracteristicas}</p>
+                    <p class="precioProducto">Precio: $${producto.precio}</p>
+                    <button onclick="agregarAlCarrito(${producto.id})" class="boton-agregar">Agregar <i class="fas fa-shopping-cart"></i></button>
+                `
+
+    productosContainer.append(div)
+})
+
+
+
+const agregarAlCarrito = (id) => {
+    const item = stock.find( (producto) => producto.id === id)
+    carrito.push(item)
+
+    console.log(carrito)
+    renderCarrito()
+    renderCantidad()
+    renderTotal()
 }
-const jabones = [   {id: 5, nombre: "Tododia", formato: "Barra", aroma: "Flor de Manzana", precio: 700},
-                    {id: 6, nombre: "Tododia", formato: "Barra", aroma: "Cereza y Avellana", precio: 700},
-                    {id: 7, nombre: "Tododia", formato: "Barra", aroma: "Flor de Lis", precio: 700},
-                    {id: 8, nombre: "Tododia", formato: "Liquido", aroma: "Frambuesa y Pimienta Rosa", precio: 700} ]
 
- for (const jabon of jabones) {
-    let contenedor = document.createElement("section");
-        contenedor.innerHTML = `<h3> Jabon: ${jabon.nombre}</h3>
-                                <p> ${jabon.formato}</p>
-                                <p> ${jabon.aroma} </p>
-                                <b> $ ${jabon.precio}</b>`;
-    document.body.appendChild(contenedor); 
+const removerDelCarrito = (id) => {
+    const item = carrito.find((producto) => producto.id === id)
+    const indice = carrito.indexOf(item)
+    carrito.splice(indice, 1)
+
+    renderCarrito()
+    renderCantidad()
+    renderTotal()
 }
+
+const vaciarCarrito = () => {
+    carrito.length = 0
+
+    renderCarrito()
+    renderCantidad()
+    renderTotal()
+}
+
+btnVaciar.addEventListener('click', vaciarCarrito)
+
+const renderCarrito = () => {
+    carritoContenedor.innerHTML = ''
+
+    carrito.forEach((item) => {
+        const div = document.createElement('div')
+        div.classList.add('productoEnCarrito')
+
+        div.innerHTML = `
+                    <p>${item.nombre}</p>
+                    <p>Precio: $${item.precio}</p>
+                    <button onclick="removerDelCarrito(${item.id})" class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
+                    `
+        
+        carritoContenedor.append(div)
+    })
+}
+
+const renderCantidad = () => {
+    contadorCarrito.innerText = carrito.length
+}
+
+const renderTotal = () => {
+    let total = 0
+    carrito.forEach((producto) => {
+        total += producto.precio
+    })
+
+    precioTotal.innerText = total
+}
+
+

@@ -1,0 +1,42 @@
+footer {
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 0;
+    background-image: linear-gradient(to right, $pink, $natural, $pink) ;
+    padding-bottom: 5px;
+    padding-top: 7px;
+    margin-left: 60px;
+    margin-right: 60px;
+    border-top-left-radius: 45px;
+    border-top-right-radius: 45px;
+} 
+
+
+.social {
+    @include flex-row-center;
+    gap: 10px;
+        img {
+            width: 30px;
+            border-radius: 30px;
+        }
+}
+
+/* MAP */
+
+
+@each $name-color, $bgcolor in $colors {
+    .btn--#{$name-color} {
+        background-color: $bgcolor;
+        width: 3em;
+        height: 3em;
+        border-radius: 30em;
+        border: none;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        box-shadow: 6px 6px 12px $darkpink;
+            &:hover {
+                width: 5em;
+            }     
+    }
+}
