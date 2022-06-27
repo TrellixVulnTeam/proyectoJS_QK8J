@@ -1,4 +1,4 @@
-const contenedorModal = document.getElementsByClassName('modal-contenedor')[0]
+const contenedorModal = document.getElementsByClassName('modal-precontenedor')[0]
 const botonAbrir = document.getElementById('boton-carrito')
 const botonCerrar = document.getElementById('carritoCerrar')
 const modalCarrito = document.getElementsByClassName('modal-carrito')[0]
@@ -6,6 +6,7 @@ const modalCarrito = document.getElementsByClassName('modal-carrito')[0]
 
 botonAbrir.addEventListener('click', ()=>{
     contenedorModal.classList.toggle ('modal-contenedor')
+    contenedorModal.classList.toggle ('active')
 })
 
 botonCerrar.addEventListener('click', () => {
@@ -19,8 +20,6 @@ contenedorModal.addEventListener('click', ()=>{
 modalCarrito.addEventListener('click', (event)=>{
     event.stopPropagation()
 }) 
-
-
 
 
 

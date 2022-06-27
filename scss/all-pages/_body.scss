@@ -47,24 +47,22 @@ body {
 //MODAL
 
 .modal-contenedor {
-    position:relative;
+    position: relative;
     display:flex;
     justify-content: center;
-    align-items: center;
+    align-content: center;
     transition:none;
     opacity: 1;
-    visibility: hidden;
-    
         &:active {
             opacity: 1;
             visibility: visible;
-        }
+        } 
         .modal-carrito {
             position: relative;
             background-color: $natural;
             min-width: 500px;
             padding: 20px;
-            margin-top: -50%;
+            margin-top: 100px;
             transition: all 1s;
                 h3 {
                     color: $darkpink;
