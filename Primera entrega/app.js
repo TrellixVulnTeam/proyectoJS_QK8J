@@ -20,8 +20,8 @@ stock.forEach((producto) => {
     div.classList.add('producto')
 
     div.innerHTML = `
-                    <img src=${producto.img} alt="">
                     <h3>${producto.nombre}</h3>
+                    <img src=${producto.img} alt="">
                     <p>${producto.tipo}</p>
                     <p>${producto.caracteristicas}</p>
                     <p class="precioProducto">Precio: $${producto.precio}</p>
@@ -36,12 +36,13 @@ stock.forEach((producto) => {
 const agregarAlCarrito = (id) => {
     const item = stock.find( (producto) => producto.id === id)
     carrito.push(item)
-
+    
     console.log(carrito)
     renderCarrito()
     renderCantidad()
     renderTotal()
 }
+
 
 const removerDelCarrito = (id) => {
     const item = carrito.find((producto) => producto.id === id)

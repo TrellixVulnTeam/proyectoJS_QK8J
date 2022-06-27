@@ -7,23 +7,28 @@ body {
   margin: 60px auto;
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
-  align-items: center; }
+  flex-wrap: wrap; }
   #contenedor-productos .producto {
     background-color: #FEFAE0;
     width: 30%;
-    padding: 10px;
-    margin-bottom: 20px;
+    padding: 30px;
+    margin: 20px;
     border-radius: 45px;
     font-family: "Roboto";
-    color: #283618; }
+    font-size: 25px;
+    color: #283618;
+    justify-content: center; }
+    #contenedor-productos .producto img {
+      width: 400px;
+      height: 400px;
+      object-fit: cover; }
     #contenedor-productos .producto .precioProducto {
       font-weight: 700; }
     #contenedor-productos .producto .boton-agregar {
       background-color: #606C38;
       color: #FEFAE0;
       font-family: "Roboto";
-      font-size: 20px;
+      font-size: 1.5rem;
       padding: 10px;
       border: none;
       border-radius: 45px; }
@@ -35,7 +40,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all .5s;
+  transition: none;
   opacity: 1;
   visibility: hidden; }
   .modal-contenedor:active {
@@ -46,8 +51,8 @@ body {
     background-color: #FEFAE0;
     min-width: 500px;
     padding: 20px;
-    margin-top: -100%;
-    transition: all .5s; }
+    margin-top: -50%;
+    transition: all 1s; }
     .modal-contenedor .modal-carrito h3 {
       color: #f18b7f;
       padding-bottom: 5px; }
@@ -58,11 +63,12 @@ body {
       font-size: 20px;
       color: #283618;
       border: none;
+      border-radius: 45px;
       background-color: #FEFAE0; }
       .modal-contenedor .modal-carrito #carritoCerrar:hover {
         cursor: pointer; }
-      .modal-contenedor .modal-carrito #carritoCerrar:focus {
-        outline: none; }
+      .modal-contenedor .modal-carrito #carritoCerrar img {
+        width: 30px; }
     .modal-contenedor .modal-carrito .precioProducto {
       padding-top: 10px; }
   .modal-contenedor .productoEnCarrito {
@@ -76,8 +82,8 @@ body {
     .modal-contenedor .productoEnCarrito:hover {
       border-left: 5px solid #283618; }
   .modal-contenedor .boton-eliminar {
-    color: darkred;
-    background-color: #f2aea6;
+    background-color: darkred;
+    color: #FEFAE0;
     font-size: 20px;
     font-family: "Roboto";
     padding: 5px;

@@ -3,11 +3,13 @@ const botonAbrir = document.getElementById('boton-carrito')
 const botonCerrar = document.getElementById('carritoCerrar')
 const modalCarrito = document.getElementsByClassName('modal-carrito')[0]
 
+
 botonAbrir.addEventListener('click', ()=>{
-    contenedorModal.classList.toggle('modal-contenedor')
+    contenedorModal.classList.toggle ('modal-contenedor')
 })
+
 botonCerrar.addEventListener('click', ()=>{
-    contenedorModal.classList.toggle('modal-contenedor')
+    contenedorModal.classList.toggle ('modal-contenedor')
 })
 
 contenedorModal.addEventListener('click', ()=>{
@@ -17,7 +19,6 @@ contenedorModal.addEventListener('click', ()=>{
 modalCarrito.addEventListener('click', (event)=>{
     event.stopPropagation()
 })
-
 
 
 
