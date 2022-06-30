@@ -9,3 +9,5 @@ let stock = [   {id: 1, tipo: "Perfume" , nombre: "Kaiak Clasico", caracteristic
                 {id: 7, tipo: "Jabon" , nombre: "Tododia - Flor de Lis", caracteristicas: "En barra" , precio: 700, img: './images/productos/jabonesbarra.jpg'},
                 {id: 8, tipo: "Jabon" , nombre: "Tododia - Frambuesa y Pimienta Rosa", caracteristicas: "Liquido" , precio: 700, img: './images/productos/jabonliqfrypim.jpg'}
 ]
+
+

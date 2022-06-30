@@ -162,12 +162,15 @@ footer {
       border-radius: 45px; }
       #contenedor-productos .producto .boton-agregar:hover {
         cursor: pointer; }
+
+
 .modal-precontenedor {
   position: absolute;
   opacity: 0;
+  width: 100%;
 }
 .modal-contenedor {
-  position: relative;
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
