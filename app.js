@@ -5,6 +5,9 @@ const subtitulo= document.getElementById("subtitulo")
 titulo.innerText= "NATbyPG"
 subtitulo.innerText= "Consultora Natura"
 
+// FILTRO
+
+
 // PRODUCTOS Y CARRITO 
 
 const productosContainer = document.querySelector('#contenedor-productos')
@@ -63,7 +66,33 @@ const vaciarCarrito = () => {
     renderTotal()
 }
 
-btnVaciar.addEventListener('click', vaciarCarrito)
+btnVaciar.addEventListener('click', () => {
+    Swal.fire({
+        title: 'Está seguro de borrar el carrito?',
+        color: '#283618',
+        icon: 'warning',
+        iconColor: 'white',
+        showCancelButton: true,
+        confirmButtonText: 'Sí, seguro',
+        confirmButtonColor: '#606C38',
+        cancelButtonText: 'No, no quiero',
+        cancelButtonColor: 'darkred',
+        background: '#f2aea6'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            vaciarCarrito()
+            Swal.fire({
+                title: 'Borrado!',
+                icon: 'success',
+                confirmButtonColor: '#606C38',
+                text: 'El carrito fue vaciado'
+            })
+            
+        }
+    })
+})
+
+
 
 const renderCarrito = () => {
     carritoContenedor.innerHTML = ''
