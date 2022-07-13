@@ -5,10 +5,7 @@ const subtitulo= document.getElementById("subtitulo")
 titulo.innerText= "NATbyPG"
 subtitulo.innerText= "Consultora Natura"
 
-// FILTRO
-
-
-// PRODUCTOS Y CARRITO 
+// PRODUCTOS  
 
 const productosContainer = document.querySelector('#contenedor-productos')
 const carritoContenedor = document.querySelector('#carrito-contenedor')
@@ -19,11 +16,15 @@ const carritoEnLS = JSON.parse( localStorage.getItem('carrito') )
 let carrito = []
 
 
-stock.forEach((producto) => {
-    const div = document.createElement('div')
-    div.classList.add('producto')
+fetch ('stock.json')
+    .then ((res) =>res.json ())
+    .then ((info) => {
+        stock = info
+        stock.forEach((producto) => {
+            const div = document.createElement('div')
+            div.classList.add('producto')
 
-    div.innerHTML = `
+            div.innerHTML = `
                     <h3>${producto.nombre}</h3>
                     <img src=${producto.img} alt="">
                     <p>${producto.tipo}</p>
@@ -32,10 +33,12 @@ stock.forEach((producto) => {
                     <button onclick="agregarAlCarrito(${producto.id})" class="boton-agregar">Agregar <i class="fas fa-shopping-cart"></i></button>
                 `
 
-    productosContainer.append(div)
+            productosContainer.append(div)
+    })
+    
 })
 
-
+// CARRITO
 
 const agregarAlCarrito = (id) => {
     const item = stock.find( (producto) => producto.id === id)
@@ -46,7 +49,6 @@ const agregarAlCarrito = (id) => {
     renderCantidad()
     renderTotal()
 }
-
 
 const removerDelCarrito = (id) => {
     const item = carrito.find((producto) => producto.id === id)
