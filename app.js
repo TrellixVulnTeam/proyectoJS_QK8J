@@ -12,8 +12,8 @@ const carritoContenedor = document.querySelector('#carrito-contenedor')
 const contadorCarrito = document.querySelector('#contadorCarrito')
 const precioTotal = document.querySelector('#precioTotal')
 const btnVaciar = document.getElementById('vaciarCarrito')
-const carritoEnLS = JSON.parse( localStorage.getItem('carrito') )
-let carrito = []
+const btnEliminar = document.getElementById('eliminar')
+const carrito = JSON.parse(localStorage.getItem('carrito')) || []
 
 
 fetch ('stock.json')
@@ -34,9 +34,8 @@ fetch ('stock.json')
                 `
 
             productosContainer.append(div)
+        })
     })
-    
-})
 
 // CARRITO
 
@@ -54,6 +53,7 @@ const removerDelCarrito = (id) => {
     const item = carrito.find((producto) => producto.id === id)
     const indice = carrito.indexOf(item)
     carrito.splice(indice, 1)
+    prodEliminado (item.nombre)
     localStorage.setItem('carrito', JSON.stringify(carrito))
     renderCarrito()
     renderCantidad()
@@ -95,7 +95,6 @@ btnVaciar.addEventListener('click', () => {
 })
 
 
-
 const renderCarrito = () => {
     carritoContenedor.innerHTML = ''
 
@@ -106,7 +105,7 @@ const renderCarrito = () => {
         div.innerHTML = `
                     <p>${item.nombre}</p>
                     <p>Precio: $${item.precio}</p>
-                    <button onclick="removerDelCarrito(${item.id})" class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
+                    <button onclick="removerDelCarrito(${item.id})" id= "eliminar" class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
                     `
         
         carritoContenedor.append(div)
@@ -126,12 +125,37 @@ const renderTotal = () => {
     precioTotal.innerText = total
 }
 
-if (carritoEnLS) {
-    carrito = carritoEnLS
-
-    renderCarrito()
-    renderCantidad()
-    renderTotal()
-} else {
-    carrito = []
+const prodEliminado = (item) => {
+    Toastify({
+        text: `Se elimino ${item} del carrito!`,
+        duration: 3000,
+        gravity: 'top',
+        position: 'left',
+        style: {
+            background: "#606C38",
+          }
+    }).showToast()
 }
+renderCarrito()
+renderCantidad()
+renderTotal()
+
+// FOOTER
+
+const socialFb = document.getElementById ('facebook');
+function openFb () {
+    window.open('http://www.facebook.com/');
+}
+socialFb.addEventListener ("click", openFb);
+
+const socialIg = document.getElementById ('twitter');
+function openIg () {
+    window.open('http://www.instagram.com/');
+}
+socialIg.addEventListener ("click", openIg);
+
+const socialTw = document.getElementById('instagram');
+function openTw () {
+    window.open('http://www.twitter.com/');
+}
+socialTw.addEventListener ("click", openTw);

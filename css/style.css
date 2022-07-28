@@ -157,6 +157,7 @@ footer {
       color: #FEFAE0;
       font-family: "Roboto";
       font-size: 1.5rem;
+      text-align: center;
       padding: 10px;
       border: none;
       border-radius: 45px; }
@@ -174,10 +175,8 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 45px;
   transition: none;
-  opacity: 1;
-  /*visibility: hidden; */}
+  opacity: 1; }
   .modal-contenedor:active {
     opacity: 1;
     visibility: visible; }
@@ -187,6 +186,7 @@ footer {
     min-width: 500px;
     padding: 20px;
     margin-top: 150px;
+    border-radius: 45px;
     transition: ease-in 0.5s; }
     .modal-contenedor .modal-carrito h3 {
       color: #f18b7f;
